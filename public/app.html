@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SUCCEEDER COSMETICS — Dashboard</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#7a1f3d">
+<link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <button id="menuToggle" class="icon-btn" aria-label="Menu">☰</button>
+      <div class="topbar-brand">SUCCEEDER COSMETICS</div>
+      <div class="topbar-user">
+        <span id="userLabel" class="muted small"></span>
+        <button id="logoutBtn" class="btn small ghost">Log out</button>
+      </div>
+    </header>
+
+    <nav id="sidebar" class="sidebar">
+      <a href="#dashboard" data-view="dashboard" class="nav-link"><span class="nav-icon">🏠</span> Dashboard</a>
+      <a href="#pos" data-view="pos" class="nav-link" data-perm="sales:create"><span class="nav-icon">🛒</span> Sales / POS</a>
+      <a href="#products" data-view="products" class="nav-link" data-perm="products:view"><span class="nav-icon">🧴</span> Products</a>
+      <a href="#customers" data-view="customers" class="nav-link" data-perm="sales:create"><span class="nav-icon">👥</span> Customers</a>
+      <a href="#workers" data-view="workers" class="nav-link" data-owner-only="1"><span class="nav-icon">👷</span> Workers / Staff</a>
+      <a href="#expenses" data-view="expenses" class="nav-link" data-perm="expenses:manage"><span class="nav-icon">💸</span> Expenses</a>
+      <a href="#reports" data-view="reports" class="nav-link" data-perm="reports:view"><span class="nav-icon">📊</span> Reports</a>
+      <a href="#receipts" data-view="receipts" class="nav-link" data-perm="sales:view_own"><span class="nav-icon">🧾</span> Receipts / History</a>
+      <a href="#account" data-view="account" class="nav-link"><span class="nav-icon">👤</span> Account</a>
+    </nav>
+
+    <main id="mainContent" class="main-content">
+      <div id="toast" class="toast hidden"></div>
+      <div id="viewRoot"><p class="muted">Loading…</p></div>
+    </main>
+  </div>
+
+  <!-- Generic modal used for forms (add product, add worker, receipt view, etc.) -->
+  <div id="modalOverlay" class="modal-overlay hidden">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 id="modalTitle"></h3>
+        <button id="modalClose" class="icon-btn" aria-label="Close">✕</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/app.js"></script>
+</body>
+</html>

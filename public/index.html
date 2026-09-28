@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SUCCEEDER COSMETICS</title>
+<link rel="stylesheet" href="/css/styles.css">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#7a1f3d">
+<link rel="icon" href="/icons/icon.svg" type="image/svg+xml">
+</head>
+<body class="auth-body">
+  <div class="auth-card">
+    <div class="brand">
+      <div class="brand-mark">💄</div>
+      <h1>SUCCEEDER COSMETICS</h1>
+      <p class="muted small">Business management system</p>
+    </div>
+
+    <!-- Shown only once, before any Owner account exists -->
+    <form id="setupForm" class="hidden" autocomplete="off">
+      <h2>Create the Owner Account</h2>
+      <p class="muted small">This runs once. After this, public sign-up is disabled forever.</p>
+      <label>Business name
+        <input type="text" name="businessName" value="SUCCEEDER COSMETICS" required>
+      </label>
+      <label>Your full name
+        <input type="text" name="name" required>
+      </label>
+      <label>Username
+        <input type="text" name="username" required autocomplete="username">
+      </label>
+      <label>Email (optional)
+        <input type="email" name="email">
+      </label>
+      <label>Password
+        <input type="password" name="password" minlength="8" required autocomplete="new-password">
+      </label>
+      <div id="setupError" class="error hidden"></div>
+      <button type="submit" class="btn primary">Create Owner Account</button>
+    </form>
+
+    <!-- Normal login, shown after setup is complete -->
+    <form id="loginForm" class="hidden" autocomplete="off">
+      <h2>Log in</h2>
+      <label>Username or email
+        <input type="text" name="username" required autocomplete="username">
+      </label>
+      <label>Password
+        <input type="password" name="password" required autocomplete="current-password">
+      </label>
+      <div id="loginError" class="error hidden"></div>
+      <button type="submit" class="btn primary">Login</button>
+      <button type="button" id="forgotBtn" class="btn link">Forgot password?</button>
+    </form>
+
+    <div id="forgotNote" class="hidden note small">
+      Ask the business Owner to reset your password from
+      <strong>Workers → Reset Password</strong>. If you are the Owner and are
+      locked out, run <code>npm run reset-owner-password</code> on the server.
+    </div>
+
+    <div id="loadingState" class="muted small">Loading…</div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/login.js"></script>
+</body>
+</html>
